@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_footer_footer_links",
+  "info": {
+    "displayName": "footerLinks"
+  },
+  "options": {},
+  "attributes": {
+    "href": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

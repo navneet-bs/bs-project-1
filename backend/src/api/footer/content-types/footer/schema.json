@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brandName": {
+      "type": "blocks"
+    },
+    "brandDescription": {
+      "type": "text"
+    },
+    "copyRightText": {
+      "type": "text"
+    },
+    "footerLink": {
+      "type": "component",
+      "component": "footer.footer-href",
+      "repeatable": true
+    }
+  }
+}

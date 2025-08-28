@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_footer_footer_hrefs",
+  "info": {
+    "displayName": "footerHref",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "href": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
