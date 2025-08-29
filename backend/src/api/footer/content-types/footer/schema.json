@@ -24,6 +24,11 @@
     },
     "brandName": {
       "type": "string"
+    },
+    "socialLink": {
+      "type": "component",
+      "component": "footer.social-links",
+      "repeatable": true
     }
   }
 }

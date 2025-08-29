@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_footer_follow_links",
+  "info": {
+    "displayName": "Follow_Link"
+  },
+  "options": {},
+  "attributes": {
+    "Follow_text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_footer_social_links",
+  "info": {
+    "displayName": "socialLinks"
+  },
+  "options": {},
+  "attributes": {
+    "socialName": {
+      "type": "string"
+    },
+    "socialLink": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

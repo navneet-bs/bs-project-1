@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_footer_social_media_links",
+  "info": {
+    "displayName": "socialMediaLink"
+  },
+  "options": {},
+  "attributes": {
+    "linkedin": {
+      "type": "text"
+    },
+    "github": {
+      "type": "text"
+    },
+    "twitter": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
