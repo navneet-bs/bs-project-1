@@ -16,8 +16,8 @@
   --bg-secondary-color: #eab5ab28;
   --bg-top-nav: #ffbca9c9;
   --bs-border-color: #676767;
-  --a-color: #723900;
-  --a-color-hover: #3f2000;
+  --a-color: #f1f1f1;
+  --a-color-hover: #8abfff;
   --primary-font: "Atkinson Hyperlegible";
   --secondary-font: "Alexandria";
   --tertiary-font: "Playfair Display";
@@ -39,6 +39,7 @@ html {
   scroll-behavior: smooth;
   font-family: var(--primary-font);
   color: var(--secondary-font-color);
+  background-color: rgb(4, 14, 26);
 }
 
 #root {
