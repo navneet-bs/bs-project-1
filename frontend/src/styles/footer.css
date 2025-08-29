@@ -1,0 +1,13 @@
+footer {
+
+}
+.footer-row {
+    flex-wrap: wrap;
+}
+.footer-col {
+    width: 100%;
+    max-width: 270px;
+}
+.footer-logo {
+    width: 150px;
+}

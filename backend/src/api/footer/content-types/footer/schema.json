@@ -11,9 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "brandName": {
-      "type": "blocks"
-    },
     "brandDescription": {
       "type": "text"
     },
@@ -24,6 +21,9 @@
       "type": "component",
       "component": "footer.footer-href",
       "repeatable": true
+    },
+    "brandName": {
+      "type": "string"
     }
   }
 }

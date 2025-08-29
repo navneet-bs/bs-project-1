@@ -385,7 +385,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   };
   attributes: {
     brandDescription: Schema.Attribute.Text;
-    brandName: Schema.Attribute.Blocks;
+    brandName: Schema.Attribute.String;
     copyRightText: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
