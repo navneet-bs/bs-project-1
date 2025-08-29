@@ -29,6 +29,15 @@
     },
     "Category": {
       "type": "string"
+    },
+    "genre": {
+      "type": "string"
+    },
+    "releaseDate": {
+      "type": "date"
+    },
+    "duration": {
+      "type": "decimal"
     }
   }
 }
