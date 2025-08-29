@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { BackendURLContext } from "../../main"
 
 function Footer() {
   const [footerData, setFooterData] = useState(null)
+  const {backend_url} = useContext(BackendURLContext)
 
   const fetchFooterData = async() => {
-    fetch("http://localhost:1337/api/footer?populate=*")
+    fetch(`${backend_url}/api/footer?populate=*`)
     .then(res => res.json())
     .then(res => {
       setFooterData(res.data)
