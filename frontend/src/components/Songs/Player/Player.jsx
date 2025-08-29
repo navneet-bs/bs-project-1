@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Player() {
+export default function Player({song}) {
   return (
-    <div>Player</div>
+    <div className='full-h'>{JSON.stringify(song)}</div>
   )
 }

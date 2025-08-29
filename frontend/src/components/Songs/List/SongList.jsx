@@ -19,13 +19,15 @@ export default function SongList() {
   }, [])
 
   return (
-    <div>
-      <div>Song List</div>
+    <div className='song-list-ctnr full-h'>
+      <h3 className='sff center justify-content-start'>Song List</h3>
+      <div className='song-list d-flex column gap-4'>
       {
         songList ? 
-        songList.map(song => <SongItem key={song.id} song={song}/>)
+        songList.map((song, i) => <SongItem key={song.id} song={song} i={i+1}/>)
         : "No Songs"
       }
+      </div>
     </div>
   )
 }

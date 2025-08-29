@@ -426,10 +426,8 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
       'api::header.header'
     > &
       Schema.Attribute.Private;
-    navbar_logo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
     publishedAt: Schema.Attribute.DateTime;
+    site_name: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
