@@ -5,6 +5,10 @@ header {
     .header-logo {
         max-width: 160px;
     }
+    .logo-title {
+        font-size: 25px;
+        color: var(--primary-font-color);
+    }
 }
 .header-nav {
     ul {

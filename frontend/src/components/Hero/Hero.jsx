@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import SearchBar from './SearchBar'
+import { BackendURLContext } from '../../main'
 
 export default function Hero() {
   const [heroData, setHeroData] = useState(null)
+  const {backend_url} = useContext(BackendURLContext)
   
   const fetchHeroData = async() => {
-    fetch("http://localhost:1337/api/hero?populate=*")
+    fetch(`${backend_url}/api/hero?populate=*`)
     .then(res => res.json())
     .then(res => {
       setHeroData(res.data)
@@ -22,13 +24,13 @@ export default function Hero() {
         {
           heroData ? 
           <video autoPlay={true} muted={true} playsInline={true} loop={true} className='full-hw'>
-            <source src={`http://localhost:1337${heroData.heroVideo.url}`} type='video/mp4'/>
+            <source src={`${backend_url}${heroData.heroVideo.url}`} type='video/mp4'/>
           </video>
           : ""
         }
       </div>
       <div className='hero-fg-data center column p-5 full-hw'>
-        <h1>
+        <h1 className='hero-title'>
           {
             heroData ? heroData.heroName : "Hero Name"
           }
