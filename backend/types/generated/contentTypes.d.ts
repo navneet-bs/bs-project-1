@@ -502,6 +502,7 @@ export interface ApiSongSong extends Struct.CollectionTypeSchema {
   };
   attributes: {
     artist: Schema.Attribute.String;
+    Category: Schema.Attribute.String;
     coverPhoto: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
