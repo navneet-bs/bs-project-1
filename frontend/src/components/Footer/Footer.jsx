@@ -21,7 +21,7 @@ function Footer() {
     <footer className='full-w footer column'>
       <div className="footer-row display-row justify-content-between gap-3">
         <div className="footer-col footer-col-1">
-          <h2>{footerData ? footerData.brandName : "Brand Name"}</h2>
+          <h2 className="gradient-text">{footerData ? footerData.brandName : "Brand Name"}</h2>
           <p className="footer-desc">
             {
               footerData ? footerData.brandDescription : "No Desc"
@@ -48,10 +48,22 @@ function Footer() {
             "No Footers"
           }
         </div>
+        <div className="footer-col column footer-col-4">
+          <h4>Social Links</h4>
+          <div className="display-row gap-2">
+          {
+            footerData ? 
+            footerData.socialLink.map(link => 
+              <a key={link.id} href={link.socialLink}><img src={`/icon/${link.socialName.toLowerCase()}.svg`} alt={link.socialName} /></a>
+            ) :
+            "No Footers"
+          }
+          </div>
+        </div>
       </div>
       <div className="footer-row">
         <div>
-          <p className="copyright text-center">
+          <p className="copyright text-center mt-3">
           {
           footerData ? footerData.copyRightText : "All rights reserved."
           }

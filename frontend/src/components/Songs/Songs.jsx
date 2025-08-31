@@ -9,7 +9,7 @@ export default function Songs() {
       <h2 className='gradient-text songs-sec-header tff mb-4'>Enjoy your vibe</h2>
       <div className="song-section-btm display-row full-w gap-4">
         <Player song={currentSong}/>
-        <SongList song={currentSong} setCurrentSong={setCurrentSong}/>
+        <SongList currentSong={currentSong} setCurrentSong={setCurrentSong}/>
       </div>
     </section>
   )
