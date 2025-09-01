@@ -11,16 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "navbar_logo": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "iconOnly": {
       "type": "media",
       "multiple": false,
@@ -30,6 +20,9 @@
         "videos",
         "audios"
       ]
+    },
+    "brandName": {
+      "type": "string"
     }
   }
 }

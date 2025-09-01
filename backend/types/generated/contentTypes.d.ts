@@ -416,6 +416,7 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    brandName: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -426,9 +427,6 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
       'api::header.header'
     > &
       Schema.Attribute.Private;
-    navbar_logo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -1,14 +1,34 @@
-import { createContext, StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './App.jsx'
+import { createContext, useState, useSyncExternalStore } from "react";
+import { createRoot } from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App.jsx";
 
 export const BackendURLContext = createContext({
-  backend_url: "http://localhost:1337"
-})
+  backend_url: "http://localhost:1337",
+});
 
-createRoot(document.getElementById('root')).render(
-  <BackendURLContext.Provider value={{backend_url: "http://localhost:1337"}}>
+export const AuthContext = createContext({
+  isLoggedIn: false,
+  setLoggedIn: () => {},
+});
+
+
+function AppProvider({ children }) {
+  const [isLoggedIn, setLoggedIn] = useState(JSON.parse(localStorage.getItem("isLoggedIn")));
+  const [username,setUsername]=useState(JSON.parse(localStorage.getItem("userInfo")));
+
+  return (
+    <BackendURLContext.Provider value={{ backend_url: "http://localhost:1337" }}>
+      <AuthContext.Provider value={{ isLoggedIn, setLoggedIn,username,setUsername}}>
+        {children}
+      </AuthContext.Provider>
+    </BackendURLContext.Provider>
+  );
+}
+
+
+createRoot(document.getElementById("root")).render(
+  <AppProvider>
     <App />
-  </BackendURLContext.Provider>,
-)
+  </AppProvider>
+);
