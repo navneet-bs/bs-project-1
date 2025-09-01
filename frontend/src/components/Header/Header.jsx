@@ -1,14 +1,34 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState} from "react";
+import { useNavigate } from "react-router";
 import RectRoundButton from "../Buttons/RectRoundButton";
 import Navlink from "./Navlink";
-import { BackendURLContext } from "../../main";
+import { AuthContext, BackendURLContext } from "../../main";
+import { Button } from "bootstrap";
 
 export default function Header() {
+  const navigate=useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [headerData, setHeaderData] = useState(null)
     const [navbarData, setNavbarData] = useState(null)
-    const { backend_url } = useContext(BackendURLContext)
+    const { backend_url} = useContext(BackendURLContext);
+    const {isLoggedIn,username,setLoggedIn} = useContext(AuthContext);
       
+
+      const handleLogout=()=>{
+        try{
+          localStorage.setItem("userInfo",null)
+          localStorage.setItem("token",null);
+          localStorage.setItem("isLoggedIn",JSON.parse(false));
+          setLoggedIn(false);
+          navigate("/");
+
+
+        }
+        catch(e){
+          console.log(e);
+          alert("error Occured");
+        }
+      }
       const fetchHeaderData = async() => {
         fetch(`${backend_url}/api/header?populate=*`)
         .then(res => res.json())
@@ -48,15 +68,22 @@ export default function Header() {
                     {
                         navbarData ?
                         navbarData.map(link => 
-                            <li key={link.id}><Navlink href={`#${link.link.toLowerCase()}`} label={link.link}/></li>
+                            <li key={link.id}><Navlink href={`/${link.link.toLowerCase()}`} label={link.link}/></li>
                         )
                         : "No Navbar Links"
                     }
                 </ul>
             </div>
             <div className="header-btn">
-                <RectRoundButton action={null} href={null} label={"Login/Signup"}/>
+          {isLoggedIn==true ? (
+            <div className="flex gap-4 items-center">
+              <RectRoundButton onClick={handleLogout} label={"Logout"}/>
+              <p className="text-white">{username.toUpperCase()}</p>
             </div>
+          ) : (
+            <RectRoundButton action={null} href={"login"} label={"Login/Signup"}/>
+          )}
+        </div>
         </div>
         <button onClick={()=>setIsMenuOpen(prev => !prev)} className={`nav-handler-btn`}>{isMenuOpen? "Close" : "Open"}</button>
     </header>

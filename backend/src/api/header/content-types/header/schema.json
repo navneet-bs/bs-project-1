@@ -21,7 +21,7 @@
         "audios"
       ]
     },
-    "site_name": {
+    "brandName": {
       "type": "string"
     }
   }
