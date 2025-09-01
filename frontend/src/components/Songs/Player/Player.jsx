@@ -29,7 +29,6 @@ export default function Player({song}) {
   };
    
   useEffect(() => {
-    console.log(song)
     if(song) setCurrentSong(song)
   },[song])
 

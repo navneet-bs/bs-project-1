@@ -12,6 +12,8 @@ import Login from './components/Auth/Login'
 import Protect from "./components/ProtectedRoute/protect";
 
 function App() {
+  const [searchedSong, setSearchedSong] = useState([])
+  const [currentSong, setCurrentSong] = useState(null)
   return (
     <Router>
       <Header />

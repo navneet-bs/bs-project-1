@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import SearchBar from './SearchBar'
 import { BackendURLContext } from '../../main'
 
-export default function Hero() {
+export default function Hero({setSearchedSong, searchedSong, setCurrentSong}) {
   const [heroData, setHeroData] = useState(null)
   const {backend_url} = useContext(BackendURLContext)
   
@@ -41,7 +41,7 @@ export default function Hero() {
           }
         </p>
         <div className="searchbar-ctnr-hero mt-3">
-            <SearchBar />
+            <SearchBar setSearchedSong={setSearchedSong} searchedSong={searchedSong} setCurrentSong={setCurrentSong} />
         </div>
       </div>
     </section>
