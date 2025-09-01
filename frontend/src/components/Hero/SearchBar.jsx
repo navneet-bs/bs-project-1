@@ -30,7 +30,7 @@ export default function SearchBar({setSearchedSong, searchedSong, setCurrentSong
         <button className='center' onClick={() => console.log("btn clicked")}><img src="/icon/search.svg" alt="search" /></button>
       </div>
       {
-      searchedSong.length > 0 && 
+      searchedSong && searchedSong.length > 0 && 
       <div className="searched-songs-list">
         <ul>
         {

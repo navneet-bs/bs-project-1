@@ -10,6 +10,7 @@ import Songs from './components/Songs/Songs'
 import Register from './components/Auth/Register'
 import Login from './components/Auth/Login'
 import Protect from "./components/ProtectedRoute/protect";
+import { useState } from "react";
 
 function App() {
   const [searchedSong, setSearchedSong] = useState([])
