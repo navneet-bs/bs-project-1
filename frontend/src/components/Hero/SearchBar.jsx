@@ -1,23 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { BackendURLContext } from '../../main'
 import { useNavigate } from 'react-router'
+import {useSongSearch} from '../CustomHooks/useSongSearch'
 
 export default function SearchBar({setSearchedSong, searchedSong, setCurrentSong}) {
   const navigate = useNavigate()
   const {backend_url} = useContext(BackendURLContext)
-  const [songSearch, setSongSearch] = useState("")
-  const fetchSongs = async (val) => {
-    if(val.length === 0) {
-      setSongSearch("")
-      setSearchedSong([])
-      return
-    }
-    fetch(`http://localhost:1337/api/songs?filters[songName][$containsi]=${val}&populate=*`)
-    .then(res => res.json())
-    .then(res => {
-      setSearchedSong(res.data)
-    })
-  }
+  const { songSearch, setSongSearch, fetchSongs } = useSongSearch(setSearchedSong);
+
   const getInputSong = (e) => {
     const val = e.target.value;
     console.log(val)
