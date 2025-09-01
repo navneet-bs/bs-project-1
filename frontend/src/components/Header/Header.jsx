@@ -34,7 +34,6 @@ export default function Header() {
         .then(res => res.json())
         .then(res => {
           setHeaderData(res.data)
-          console.log(res)
         })
       }
 
@@ -43,7 +42,6 @@ export default function Header() {
         .then(res => res.json())
         .then(res => {
           setNavbarData(res.data)
-          console.log(res.data)
         })
       }
     

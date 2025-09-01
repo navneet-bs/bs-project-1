@@ -30,17 +30,17 @@ export default function Hero() {
         }
       </div>
       <div className='hero-fg-data center column p-5 full-hw'>
-        <h1 className='hero-title'>
+        <h1 className='hero-title m-0 p-0 fw-bold tff'>
           {
             heroData ? heroData.heroName : "Hero Name"
           }
         </h1>
-        <p>
+        <p className='hero-desc text-center my-3 px-3'>
           {
             heroData ? heroData.heroDesc : "Hero Description"
           }
         </p>
-        <div className="searchbar-ctnr-hero">
+        <div className="searchbar-ctnr-hero mt-3">
             <SearchBar />
         </div>
       </div>

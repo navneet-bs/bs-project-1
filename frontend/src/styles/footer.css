@@ -1,5 +1,16 @@
 footer {
-
+    border-top: 1px solid rgba(189, 189, 189, 0.301);
+    padding: 20px;
+    padding-bottom: 0;
+    h4 {
+        font-size: 22px;
+        color: var(--main-theme-color);
+        font-weight: bold;
+        margin: 0;
+        margin-bottom: 15px;
+        position: relative;
+        left: -3px;
+    }
 }
 .footer-row {
     flex-wrap: wrap;
@@ -8,6 +19,24 @@ footer {
     width: 100%;
     max-width: 270px;
 }
+.footer-desc {
+    color: rgb(182, 182, 182);
+    font-size: 16px;
+}
+.footer-col-4 {
+    img {
+        width: 30px;
+        transition: 0.3s;
+    }
+    a:hover {
+        img {
+            filter: brightness(0.6);
+        }
+    }
+}
 .footer-logo {
     width: 150px;
+}
+.copyright {
+    color: rgb(182, 182, 182);
 }

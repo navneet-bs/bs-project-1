@@ -1,0 +1,108 @@
+.player {
+    width: -webkit-fill-available;
+}
+
+.player-cont {
+    width: 400px;
+}
+
+.player-cover {
+    position: relative;
+    height: 350px;
+    width: min(350px, 95%);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.player-cover-fg,
+.player-cover-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.player-cover-bg {
+    object-fit: cover;
+    object-position: center;
+}
+
+.player-cover-fg {
+    background-image: linear-gradient(0deg, black, transparent);
+    padding: 20px;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.player-cover-name {
+    font-size: 30px;
+    color: var(--primary-font-color);
+    text-transform: capitalize;
+}
+
+.player-cover-artist {
+    font-size: 20px;
+    color: gray;
+    text-transform: capitalize;
+}
+
+.song-active {
+    background-color: #9e9e9e1c;
+    padding: 13px 0;
+    border-radius: 6px;
+}
+
+.pp-bar {
+    height: 6px;
+    border-radius: 20px;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background-image: linear-gradient(90deg, indigo 0%, rgb(143, 0, 255), rgb(212, 0, 255), rgb(255, 0, 200), rgb(255, 20, 147) var(--progress), #ffffff20 var(--progress), #ffffff20 100%);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.pp-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgb(255, 20, 147);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.pp-bar::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: rgb(255, 20, 147);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.pp-bar-progress {
+    border-radius: 20px;
+}
+
+.pp-duration {
+    color: #a4a4a4;
+    padding: 0 3px;
+    font-size: 14px;
+}
+
+.player-button {
+    button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #787878ff;
+    }
+}
