@@ -6,15 +6,17 @@ import './styles/home.css'
 import './styles/navbar.css'
 import './styles/footer.css'
 import Songs from './components/Songs/Songs'
+import { useState } from 'react'
 
 function App() {
-
+  const [searchedSong, setSearchedSong] = useState([])
+  const [currentSong, setCurrentSong] = useState(null)
   return (
     <>
-      <Header/>
-      <Hero />
-      <Songs/>
-      <Footer/>
+      <Header />
+      <Hero setSearchedSong={setSearchedSong} searchedSong={searchedSong} setCurrentSong={setCurrentSong}/>
+      <Songs searchedSong={searchedSong} setSearchedSong={setSearchedSong} currentSong={currentSong} setCurrentSong={setCurrentSong} />
+      <Footer />
     </>
   )
 }
