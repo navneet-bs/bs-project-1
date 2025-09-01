@@ -9,6 +9,7 @@ import './styles/footer.css'
 import Songs from './components/Songs/Songs'
 import Register from './components/Auth/Register'
 import Login from './components/Auth/Login'
+import Protect from "./components/ProtectedRoute/protect";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/songs" element={<Songs />} />
+        <Route path="/home" element={<Hero />} />
+        <Route path="/songs" element={<Protect> <Songs/> </Protect>} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

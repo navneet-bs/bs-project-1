@@ -77,7 +77,7 @@ export default function Header() {
             <div className="header-btn">
           {isLoggedIn==true ? (
             <div className="flex gap-4 items-center">
-              <RectRoundButton onClick={handleLogout} label={"Logout"}/>
+              <RectRoundButton action={()=>handleLogout()} label={"Logout"}/>
               <p className="text-white">{username.toUpperCase()}</p>
             </div>
           ) : (

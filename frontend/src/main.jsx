@@ -15,7 +15,7 @@ export const AuthContext = createContext({
 
 function AppProvider({ children }) {
   const [isLoggedIn, setLoggedIn] = useState(JSON.parse(localStorage.getItem("isLoggedIn")));
-  const [username,setUsername]=useState(JSON.parse(localStorage.getItem("userInfo")));
+  const [username,setUsername]=useState((localStorage.getItem("userInfo")));
 
   return (
     <BackendURLContext.Provider value={{ backend_url: "http://localhost:1337" }}>

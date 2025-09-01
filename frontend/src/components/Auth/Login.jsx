@@ -35,7 +35,7 @@ export default function Login() {
       if (res.ok) {
         setSuccess("Login successful! 🎉");
         localStorage.setItem("token", data.jwt);
-        localStorage.setItem("userInfo",JSON.stringify(data.user.username));
+        localStorage.setItem("userInfo",data.user.username);
         localStorage.setItem("isLoggedIn",JSON.stringify(true))
         setLoggedIn(true);
         setFormData({ identifier: "", password: "" });
