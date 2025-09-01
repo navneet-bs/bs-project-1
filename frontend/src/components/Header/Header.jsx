@@ -55,7 +55,7 @@ export default function Header() {
                 headerData ?
                 <div className="display-row center full-h">
                   <img src={`${backend_url}${headerData.iconOnly.url}`} alt="" className="full-h"/>
-                  <h1 className="logo-title center m-0 p-0 sff fw-bold">{headerData.site_name}</h1>
+                  <h1 className="logo-title center m-0 p-0 sff fw-bold">{headerData.brandName}</h1>
                 </div>
                 : "Logo"
             }
@@ -73,17 +73,17 @@ export default function Header() {
                 </ul>
             </div>
             <div className="header-btn">
-          {isLoggedIn ? (
-            <div className="d-flex gap-2 items-center">
-              <RectRoundButton action={()=>handleLogout()} label={"Logout"}/>
-              <p className="text-white">{username.toUpperCase()}</p>
+              {isLoggedIn ? (
+                <div className="d-flex gap-2 center logged-in-ctnr">
+                  <p className="text-white center user-detail m-0 full-h ps-3">Hii, {username.toLowerCase()}</p>
+                  <RectRoundButton action={()=>handleLogout()} label={"Logout"}/>
+                </div>
+              ) : (
+                <RectRoundButton action={null} href={"login"} label={"Login/Signup"}/>
+              )}
             </div>
-          ) : (
-            <RectRoundButton action={null} href={"login"} label={"Login/Signup"}/>
-          )}
         </div>
-        </div>
-        <button onClick={()=>setIsMenuOpen(prev => !prev)} className={`nav-handler-btn`}>{isMenuOpen? "Close" : "Open"}</button>
+        <button onClick={()=>setIsMenuOpen(prev => !prev)} className={`nav-handler-btn center`}><img src={`/icon/${isMenuOpen? "close" : "menu"}.svg`} style={{width:"25px",height:"25px"}}/></button>
     </header>
   )
 }

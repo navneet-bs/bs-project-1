@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SongItem from './SongItem'
 
-export default function SongList({currentSong, setCurrentSong}) {
-  const [songList, setSongList] = useState(null)
-  const [songNumber, setSongNumber] = useState(0)
-
+export default function SongList({songNumber, setSongNumber, songList, setSongList, currentSong, setCurrentSong}) {
   const fetchSongData = async () => {
     fetch("http://localhost:1337/api/songs?populate=*")
     .then(res => {
@@ -26,7 +23,7 @@ export default function SongList({currentSong, setCurrentSong}) {
       <div className='song-list d-flex column gap-4 pb-4'>
       {
         songList ? 
-        songList.map((song, i) => <SongItem key={song.id} setSongNumber={setSongNumber} className={i == songNumber ? "song-active":""} setCurrentSong={setCurrentSong} song={song} i={i+1}/>)
+        songList.map((song, i) => <SongItem key={song.id} setSongNumber={setSongNumber} className={song.id == songNumber ? "song-active":""} setCurrentSong={setCurrentSong} song={song} i={i+1}/>)
         : "No Songs"
       }
       </div>

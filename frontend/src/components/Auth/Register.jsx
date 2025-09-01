@@ -11,7 +11,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const {setLoggedIn} = useContext(AuthContext);
+  const {setLoggedIn, setUsername} = useContext(AuthContext);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,7 +37,8 @@ export default function Register() {
         localStorage.setItem("token", data.jwt);
         setFormData({ username: "", email: "", password: "" });
         localStorage.setItem("isLoggedIn",JSON.stringify(true))
-        localStorage.setItem("userInfo",data.user.username);
+        localStorage.setItem("username",data.user.username);
+        setUsername(data.user.username)
         setLoggedIn(true);
         navigate('/')
       } else {

@@ -162,24 +162,3 @@
         background-color: gray;
     }
 }
-
-@media screen and (max-width: 900px) {
-    .header-right-club {
-        overflow: hidden;
-        position: absolute;
-        top: 70px;
-        height: fit-content;
-        flex-direction: column;
-    }
-    .nav-handler-btn {
-        display: flex;
-    }
-    .nav-open {
-        .header-right-club{
-            height: 400px;
-        }
-    }
-    .nav-close .header-right-club{
-        height: 0;
-    }
-}

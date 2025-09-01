@@ -6,7 +6,7 @@ export default function SongItem({song, i, setCurrentSong, className, setSongNum
   const { backend_url } = useContext(BackendURLContext)
   
   return (
-    <div className={`display-row full-w gap-3 ${className}`} style={{cursor: "pointer"}} onClick={()=>{setSongNumber(i - 1); setCurrentSong(song)}}>
+    <div className={`display-row full-w gap-3 ${className}`} style={{cursor: "pointer"}} onClick={()=>{setSongNumber(song.id); setCurrentSong(song)}}>
       <div className="song-number text-end">{i}</div>
       <div className="song-list-img">
         <img src={`${backend_url}${song.coverPhoto.url}`} alt={song.songName} />

@@ -36,7 +36,7 @@ export default function SearchBar({setSearchedSong, searchedSong, setCurrentSong
         <ul>
         {
           searchedSong.map((song, i) => 
-            <li key={song.id} className='full-w text-overflow' onClick={() => {setCurrentSong(song); }}><a href="#" className='d-flex align-items-center full-hw'><img src={`${backend_url}${song.coverPhoto.url}`} alt={song.songName} className='me-2' />{song.songName}</a></li>
+            <li key={song.id} className='full-w text-overflow' onClick={() => {setCurrentSong(song); navigate(`/songs?songId=${song.id}`)}}><div className='d-flex align-items-center full-hw'><img src={`${backend_url}${song.coverPhoto.url}`} alt={song.songName} className='me-2' />{song.songName}</div></li>
           )
         }
         </ul>
