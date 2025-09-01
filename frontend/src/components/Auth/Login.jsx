@@ -1,17 +1,17 @@
-import { useState ,useContext} from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../../main";
 import { useNavigate } from "react-router";
 export default function Login() {
 
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    identifier: "", 
+    identifier: "",
     password: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const {setLoggedIn,setUsername} = useContext(AuthContext);
+  const { setLoggedIn, setUsername } = useContext(AuthContext);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,10 +33,11 @@ export default function Login() {
       const data = await res.json();
 
       if (res.ok) {
-        setSuccess("Login successful! 🎉");
         localStorage.setItem("token", data.jwt);
-        localStorage.setItem("userInfo",data.user.username);
-        localStorage.setItem("isLoggedIn",JSON.stringify(true))
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("username", data.user.username);
+        setSuccess("Login successful! 🎉");
+        setUsername(data.user.username);
         setLoggedIn(true);
         setFormData({ identifier: "", password: "" });
         navigate('/');
@@ -44,7 +45,7 @@ export default function Login() {
         setError(data.error?.message || "Invalid credentials!");
       }
     } catch (err) {
-        console.log(err);
+      console.log(err);
       setError("Server error. Please try again later.");
     } finally {
       setLoading(false);

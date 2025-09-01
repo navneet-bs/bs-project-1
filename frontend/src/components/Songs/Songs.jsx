@@ -1,7 +1,7 @@
 import SongList from './List/SongList'
 import Player from './Player/Player'
 
-export default function Songs({currentSong, setCurrentSong}) {
+export default function Songs({searchedSong, setSearchedSong, currentSong, setCurrentSong}) {
   return (
     <section className='songs full-hw center column'>
       <h2 className='gradient-text songs-sec-header tff mb-4'>Enjoy your vibe</h2>

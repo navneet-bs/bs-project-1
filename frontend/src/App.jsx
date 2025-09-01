@@ -10,6 +10,7 @@ import Songs from './components/Songs/Songs'
 import Register from './components/Auth/Register'
 import Login from './components/Auth/Login'
 import Protect from "./components/ProtectedRoute/protect";
+import { useState } from "react";
 
 function App() {
   const [searchedSong, setSearchedSong] = useState([])
@@ -18,9 +19,13 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/home" element={<Hero />} />
-        <Route path="/songs" element={<Protect> <Songs/> </Protect>} />
+        <Route path="/" element={<Hero setSearchedSong={setSearchedSong} searchedSong={searchedSong} setCurrentSong={setCurrentSong}/>} />
+        <Route path="/home" element={<Hero setSearchedSong={setSearchedSong} searchedSong={searchedSong} setCurrentSong={setCurrentSong}/>} />
+        <Route path="/songs" element={
+          <Protect>
+            <Songs currentSong={currentSong} setCurrentSong={setCurrentSong} />
+          </Protect>
+        } />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

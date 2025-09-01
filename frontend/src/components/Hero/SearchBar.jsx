@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { BackendURLContext } from '../../main'
+import { useNavigate } from 'react-router'
 
 export default function SearchBar({setSearchedSong, searchedSong, setCurrentSong}) {
+  const navigate = useNavigate()
   const {backend_url} = useContext(BackendURLContext)
   const [songSearch, setSongSearch] = useState("")
   const fetchSongs = async (val) => {
@@ -14,7 +16,6 @@ export default function SearchBar({setSearchedSong, searchedSong, setCurrentSong
     .then(res => res.json())
     .then(res => {
       setSearchedSong(res.data)
-      console.log(res.data)
     })
   }
   const getInputSong = (e) => {
@@ -35,7 +36,7 @@ export default function SearchBar({setSearchedSong, searchedSong, setCurrentSong
         <ul>
         {
           searchedSong.map((song, i) => 
-            <li key={song.id} className='full-w text-overflow' onClick={() => setCurrentSong(song)}><a href="#" className='d-flex align-items-center full-hw'><img src={`${backend_url}${song.coverPhoto.url}`} alt={song.songName} className='me-2' />{song.songName}</a></li>
+            <li key={song.id} className='full-w text-overflow' onClick={() => {setCurrentSong(song); }}><a href="#" className='d-flex align-items-center full-hw'><img src={`${backend_url}${song.coverPhoto.url}`} alt={song.songName} className='me-2' />{song.songName}</a></li>
           )
         }
         </ul>

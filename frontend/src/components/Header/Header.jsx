@@ -3,26 +3,24 @@ import { useNavigate } from "react-router";
 import RectRoundButton from "../Buttons/RectRoundButton";
 import Navlink from "./Navlink";
 import { AuthContext, BackendURLContext } from "../../main";
-import { Button } from "bootstrap";
 
 export default function Header() {
   const navigate=useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [headerData, setHeaderData] = useState(null)
     const [navbarData, setNavbarData] = useState(null)
-    const { backend_url} = useContext(BackendURLContext);
-    const {isLoggedIn,username,setLoggedIn} = useContext(AuthContext);
+    const {backend_url} = useContext(BackendURLContext);
+    const {isLoggedIn, username, setUsername, setLoggedIn} = useContext(AuthContext);
       
 
       const handleLogout=()=>{
         try{
-          localStorage.setItem("userInfo",null)
-          localStorage.setItem("token",null);
-          localStorage.setItem("isLoggedIn",JSON.parse(false));
+          localStorage.removeItem("token");
+          localStorage.setItem("isLoggedIn",false);
+          localStorage.removeItem("username");
+          setUsername(null)
           setLoggedIn(false);
           navigate("/");
-
-
         }
         catch(e){
           console.log(e);
@@ -75,8 +73,8 @@ export default function Header() {
                 </ul>
             </div>
             <div className="header-btn">
-          {isLoggedIn==true ? (
-            <div className="flex gap-4 items-center">
+          {isLoggedIn ? (
+            <div className="d-flex gap-2 items-center">
               <RectRoundButton action={()=>handleLogout()} label={"Logout"}/>
               <p className="text-white">{username.toUpperCase()}</p>
             </div>
